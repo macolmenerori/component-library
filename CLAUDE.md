@@ -85,8 +85,28 @@ Import order enforced:
 
 ## Publishing
 
-- Published to GitHub Packages registry (`https://npm.pkg.github.com`)
-- Only `dist/` folder is included in published package
-- Main entry: `dist/index.js` (ESM)
-- CommonJS entry: `dist/index.cjs`
-- Types entry: `dist/types/index.d.ts`
+### Package Configuration
+- **Registry**: Published to GitHub Packages (`https://npm.pkg.github.com`)
+- **Access**: Public package
+- **Peer dependencies**: React ^18.0.0 or ^19.0.0, React DOM ^18.0.0 or ^19.0.0
+- **Package contents**: Only `dist/` folder is included in published package
+
+### Entry Points
+- **Main (CommonJS)**: `dist/index.cjs`
+- **Module (ESM)**: `dist/index.js`
+- **Types**: `dist/types/index.d.ts`
+- **Exports field**: Modern conditional exports supporting both ESM (`import`) and CommonJS (`require`) with proper type definitions
+
+### Publishing Process
+1. Ensure `GITHUB_PACKAGES_TOKEN` environment variable is set
+2. Run `pnpm build` to create production bundle
+3. Run `pnpm publish` to publish to GitHub Packages
+
+### Consumer Installation
+Users need to configure `.npmrc`:
+```
+@macolmenerori:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
+```
+
+Then install with: `pnpm add @macolmenerori/component-library`
