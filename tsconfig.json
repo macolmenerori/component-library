@@ -26,5 +26,5 @@
     "types": ["node", "react", "react-dom", "jest", "@testing-library/jest-dom"]
   },
   "exclude": ["node_modules", "build", "cypress", "dist"],
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"]
 }

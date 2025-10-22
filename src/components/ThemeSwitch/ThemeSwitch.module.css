@@ -1,0 +1,1070 @@
+/* Sun - Size variants */
+.sunCore {
+  position: relative;
+  background: radial-gradient(circle, #ffd700, #ffa500);
+  border-radius: 50%;
+}
+
+.small .sunCore {
+  width: 16px;
+  height: 16px;
+  box-shadow: inset -1px -1px 2px rgba(255, 140, 0, 0.5);
+}
+
+.medium .sunCore {
+  width: 24px;
+  height: 24px;
+  box-shadow: inset -1.5px -1.5px 3px rgba(255, 140, 0, 0.5);
+}
+
+.large .sunCore {
+  width: 32px;
+  height: 32px;
+  box-shadow: inset -2px -2px 4px rgba(255, 140, 0, 0.5);
+}
+
+/* Sunspots - Size variants */
+.small .sunspot1 {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 140, 0, 0.6);
+  border-radius: 50%;
+  top: 4px;
+  left: 5px;
+}
+
+.small .sunspot2 {
+  position: absolute;
+  width: 1.5px;
+  height: 1.5px;
+  background: rgba(255, 140, 0, 0.5);
+  border-radius: 50%;
+  bottom: 5px;
+  right: 4px;
+}
+
+.small .sunspot3 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: rgba(255, 140, 0, 0.4);
+  border-radius: 50%;
+  top: 6px;
+  right: 6px;
+}
+
+.medium .sunspot1 {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 140, 0, 0.6);
+  border-radius: 50%;
+  top: 6px;
+  left: 7.5px;
+}
+
+.medium .sunspot2 {
+  position: absolute;
+  width: 2.25px;
+  height: 2.25px;
+  background: rgba(255, 140, 0, 0.5);
+  border-radius: 50%;
+  bottom: 7.5px;
+  right: 6px;
+}
+
+.medium .sunspot3 {
+  position: absolute;
+  width: 1.5px;
+  height: 1.5px;
+  background: rgba(255, 140, 0, 0.4);
+  border-radius: 50%;
+  top: 9px;
+  right: 9px;
+}
+
+.large .sunspot1 {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 140, 0, 0.6);
+  border-radius: 50%;
+  top: 8px;
+  left: 10px;
+}
+
+.large .sunspot2 {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 140, 0, 0.5);
+  border-radius: 50%;
+  bottom: 10px;
+  right: 8px;
+}
+
+.large .sunspot3 {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 140, 0, 0.4);
+  border-radius: 50%;
+  top: 12px;
+  right: 12px;
+}
+
+/* Sun rays - Size adjustments */
+.small .sunRay {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  animation: rotateSun 10s linear infinite;
+}
+
+.small .sunRay:nth-child(2) {
+  width: 20px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.small .sunRay:nth-child(3) {
+  width: 1px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.small .sunRay:nth-child(4) {
+  width: 20px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.small .sunRay:nth-child(5) {
+  width: 20px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.small .sunRay:nth-child(6),
+.small .sunRay:nth-child(7),
+.small .sunRay:nth-child(8),
+.small .sunRay:nth-child(9) {
+  display: none;
+}
+
+.medium .sunRay {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  animation: rotateSun 10s linear infinite;
+}
+
+.medium .sunRay:nth-child(2) {
+  width: 30px;
+  height: 1.5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.medium .sunRay:nth-child(3) {
+  width: 1.5px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.medium .sunRay:nth-child(4) {
+  width: 30px;
+  height: 1.5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.medium .sunRay:nth-child(5) {
+  width: 30px;
+  height: 1.5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.medium .sunRay:nth-child(6) {
+  width: 26px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(22.5deg);
+}
+
+.medium .sunRay:nth-child(7) {
+  width: 26px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-22.5deg);
+}
+
+.medium .sunRay:nth-child(8),
+.medium .sunRay:nth-child(9) {
+  display: none;
+}
+
+.large .sunRay {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  animation: rotateSun 10s linear infinite;
+}
+
+.large .sunRay:nth-child(2) {
+  width: 40px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.large .sunRay:nth-child(3) {
+  width: 2px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.large .sunRay:nth-child(4) {
+  width: 40px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.large .sunRay:nth-child(5) {
+  width: 40px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.large .sunRay:nth-child(6) {
+  width: 35px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(22.5deg);
+}
+
+.large .sunRay:nth-child(7) {
+  width: 35px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-22.5deg);
+}
+
+/* Base container styles */
+.switchContainer {
+  position: relative;
+  background: linear-gradient(135deg, #87ceeb, #add8e6);
+  border-radius: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+/* Size variants */
+.switchContainer.small {
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.switchContainer.medium {
+  width: 90px;
+  height: 45px;
+  border-radius: 22.5px;
+}
+
+.switchContainer.large {
+  width: 120px;
+  height: 60px;
+  border-radius: 30px;
+}
+
+.switchContainer:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+.switchContainer.dark {
+  background: linear-gradient(135deg, #1a1a3e, #0a0a1f);
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* Clouds - Base styles */
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 100px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.light .cloud {
+  opacity: 1;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 100px;
+}
+
+/* Cloud 1 - Size variants */
+.small .cloud1 {
+  width: 12px;
+  height: 4px;
+  top: 7px;
+  left: 10px;
+}
+
+.small .cloud1::before {
+  width: 5px;
+  height: 5px;
+  top: -2.5px;
+  left: 2.5px;
+}
+
+.small .cloud1::after {
+  width: 6px;
+  height: 4px;
+  top: -1.5px;
+  right: 2.5px;
+}
+
+.medium .cloud1 {
+  width: 19px;
+  height: 6px;
+  top: 11px;
+  left: 15px;
+}
+
+.medium .cloud1::before {
+  width: 7.5px;
+  height: 7.5px;
+  top: -3.75px;
+  left: 3.75px;
+}
+
+.medium .cloud1::after {
+  width: 9px;
+  height: 6px;
+  top: -2.25px;
+  right: 3.75px;
+}
+
+.large .cloud1 {
+  width: 25px;
+  height: 8px;
+  top: 15px;
+  left: 20px;
+}
+
+.large .cloud1::before {
+  width: 10px;
+  height: 10px;
+  top: -5px;
+  left: 5px;
+}
+
+.large .cloud1::after {
+  width: 12px;
+  height: 8px;
+  top: -3px;
+  right: 5px;
+}
+
+.cloud1 {
+  animation: floatCloud1 12s infinite ease-in-out;
+}
+
+/* Cloud 2 - Size variants */
+.small .cloud2 {
+  width: 10px;
+  height: 3px;
+  top: 17px;
+  right: 12px;
+}
+
+.small .cloud2::before {
+  width: 4px;
+  height: 4px;
+  top: -2px;
+  left: 1.5px;
+}
+
+.medium .cloud2 {
+  width: 15px;
+  height: 4.5px;
+  top: 26px;
+  right: 19px;
+}
+
+.medium .cloud2::before {
+  width: 6px;
+  height: 6px;
+  top: -3px;
+  left: 2.25px;
+}
+
+.large .cloud2 {
+  width: 20px;
+  height: 6px;
+  top: 35px;
+  right: 25px;
+}
+
+.large .cloud2::before {
+  width: 8px;
+  height: 8px;
+  top: -4px;
+  left: 3px;
+}
+
+.cloud2 {
+  animation: floatCloud2 15s infinite ease-in-out;
+}
+
+/* Cloud 3 - Size variants */
+.small .cloud3 {
+  width: 9px;
+  height: 2.5px;
+  bottom: 9px;
+  left: 17px;
+}
+
+.small .cloud3::after {
+  width: 5px;
+  height: 3px;
+  top: -1.5px;
+  right: 1.5px;
+}
+
+.medium .cloud3 {
+  width: 13.5px;
+  height: 3.75px;
+  bottom: 13.5px;
+  left: 26px;
+}
+
+.medium .cloud3::after {
+  width: 7.5px;
+  height: 4.5px;
+  top: -2.25px;
+  right: 2.25px;
+}
+
+.large .cloud3 {
+  width: 18px;
+  height: 5px;
+  bottom: 18px;
+  left: 35px;
+}
+
+.large .cloud3::after {
+  width: 10px;
+  height: 6px;
+  top: -3px;
+  right: 3px;
+}
+
+.cloud3 {
+  animation: floatCloud3 18s infinite ease-in-out;
+}
+
+@keyframes floatCloud1 {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes floatCloud2 {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+}
+
+@keyframes floatCloud3 {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+/* Stars - Base styles */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.dark .star {
+  opacity: 1;
+}
+
+/* Stars - Size variants */
+.small .star1 {
+  width: 1px;
+  height: 1px;
+  top: 5px;
+  left: 12px;
+}
+
+.small .star2 {
+  width: 1px;
+  height: 1px;
+  top: 9px;
+  right: 15px;
+}
+
+.small .star3 {
+  width: 1px;
+  height: 1px;
+  bottom: 7px;
+  left: 20px;
+}
+
+.small .star4 {
+  width: 0.75px;
+  height: 0.75px;
+  top: 12px;
+  left: 7px;
+}
+
+.small .star5 {
+  width: 1px;
+  height: 1px;
+  bottom: 10px;
+  right: 17px;
+}
+
+.small .star6 {
+  width: 0.5px;
+  height: 0.5px;
+  top: 17px;
+  right: 10px;
+}
+
+.small .star7 {
+  width: 0.75px;
+  height: 0.75px;
+  bottom: 12px;
+  left: 10px;
+}
+
+.small .star8 {
+  width: 0.5px;
+  height: 0.5px;
+  top: 6px;
+  right: 7px;
+}
+
+.medium .star1 {
+  width: 1.5px;
+  height: 1.5px;
+  top: 7.5px;
+  left: 19px;
+}
+
+.medium .star2 {
+  width: 1.5px;
+  height: 1.5px;
+  top: 13.5px;
+  right: 22.5px;
+}
+
+.medium .star3 {
+  width: 1.5px;
+  height: 1.5px;
+  bottom: 11px;
+  left: 30px;
+}
+
+.medium .star4 {
+  width: 1.13px;
+  height: 1.13px;
+  top: 19px;
+  left: 11px;
+}
+
+.medium .star5 {
+  width: 1.5px;
+  height: 1.5px;
+  bottom: 15px;
+  right: 26px;
+}
+
+.medium .star6 {
+  width: 0.75px;
+  height: 0.75px;
+  top: 26px;
+  right: 15px;
+}
+
+.medium .star7 {
+  width: 1.13px;
+  height: 1.13px;
+  bottom: 19px;
+  left: 15px;
+}
+
+.medium .star8 {
+  width: 0.75px;
+  height: 0.75px;
+  top: 9px;
+  right: 11px;
+}
+
+.large .star1 {
+  width: 2px;
+  height: 2px;
+  top: 10px;
+  left: 25px;
+}
+
+.large .star2 {
+  width: 2px;
+  height: 2px;
+  top: 18px;
+  right: 30px;
+}
+
+.large .star3 {
+  width: 2px;
+  height: 2px;
+  bottom: 15px;
+  left: 40px;
+}
+
+.large .star4 {
+  width: 1.5px;
+  height: 1.5px;
+  top: 25px;
+  left: 15px;
+}
+
+.large .star5 {
+  width: 2px;
+  height: 2px;
+  bottom: 20px;
+  right: 35px;
+}
+
+.large .star6 {
+  width: 1px;
+  height: 1px;
+  top: 35px;
+  right: 20px;
+}
+
+.large .star7 {
+  width: 1.5px;
+  height: 1.5px;
+  bottom: 25px;
+  left: 20px;
+}
+
+.large .star8 {
+  width: 1px;
+  height: 1px;
+  top: 12px;
+  right: 15px;
+}
+
+.star1 {
+  animation: twinkle 3s infinite;
+}
+
+.star2 {
+  animation: twinkle 3s infinite 0.5s;
+}
+
+.star3 {
+  animation: twinkle 3s infinite 1s;
+}
+
+.star4 {
+  animation: twinkle 3s infinite 1.5s;
+}
+
+.star5 {
+  animation: twinkle 3s infinite 2s;
+}
+
+.star6 {
+  animation: twinkle 3s infinite 2.5s;
+}
+
+.star7 {
+  animation: twinkle 3s infinite 0.8s;
+}
+
+.star8 {
+  animation: twinkle 3s infinite 1.3s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Toggle - Size variants */
+.toggle {
+  position: absolute;
+  border-radius: 50%;
+  transition:
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small .toggle {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  top: 3px;
+  left: 3px;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.2),
+    0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.medium .toggle {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  top: 4.5px;
+  left: 4.5px;
+  box-shadow:
+    0 1.5px 6px rgba(0, 0, 0, 0.2),
+    0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.large .toggle {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  top: 6px;
+  left: 6px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.dark.small .toggle {
+  transform: translateX(30px);
+  background: linear-gradient(135deg, #f5f5dc, #d3d3d3);
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(245, 245, 220, 0.2);
+}
+
+.dark.medium .toggle {
+  transform: translateX(45px);
+  background: linear-gradient(135deg, #f5f5dc, #d3d3d3);
+  box-shadow:
+    0 1.5px 6px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(245, 245, 220, 0.2);
+}
+
+.dark.large .toggle {
+  transform: translateX(60px);
+  background: linear-gradient(135deg, #f5f5dc, #d3d3d3);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(245, 245, 220, 0.2);
+}
+
+/* Sun */
+.sun {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.dark .sun {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.5);
+}
+
+.large .sunRay:nth-child(7) {
+  width: 35px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-22.5deg);
+}
+
+.large .sunRay:nth-child(8) {
+  width: 35px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(67.5deg);
+}
+
+.large .sunRay:nth-child(9) {
+  width: 35px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-67.5deg);
+}
+
+@keyframes rotateSun {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Moon */
+.moon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.5);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.dark .moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Moon - Size variants */
+.moonCore {
+  position: relative;
+  border-radius: 50%;
+}
+
+.small .moonCore {
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #f5f5dc, #c0c0c0);
+  box-shadow:
+    inset -1.5px -1.5px 4px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 4px rgba(255, 255, 255, 0.3);
+}
+
+.medium .moonCore {
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle at 30% 30%, #f5f5dc, #c0c0c0);
+  box-shadow:
+    inset -2.25px -2.25px 6px rgba(0, 0, 0, 0.2),
+    inset 1.5px 1.5px 6px rgba(255, 255, 255, 0.3);
+}
+
+.large .moonCore {
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle at 30% 30%, #f5f5dc, #c0c0c0);
+  box-shadow:
+    inset -3px -3px 8px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Craters - Size variants */
+.small .crater1 {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.4), rgba(105, 105, 105, 0.2));
+  border-radius: 50%;
+  top: 4px;
+  left: 5px;
+  box-shadow: inset 0.5px 0.5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.small .crater2 {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.3), rgba(105, 105, 105, 0.15));
+  border-radius: 50%;
+  bottom: 4.5px;
+  right: 3.5px;
+  box-shadow: inset 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.15);
+}
+
+.small .crater3 {
+  position: absolute;
+  width: 1.5px;
+  height: 1.5px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.25), rgba(105, 105, 105, 0.1));
+  border-radius: 50%;
+  top: 7.5px;
+  right: 5.5px;
+  box-shadow: inset 0.25px 0.25px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+.small .crater4 {
+  position: absolute;
+  width: 2.5px;
+  height: 2.5px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.35), rgba(105, 105, 105, 0.18));
+  border-radius: 50%;
+  bottom: 3px;
+  left: 4px;
+  box-shadow: inset 0.5px 0.5px 0.75px rgba(0, 0, 0, 0.18);
+}
+
+.medium .crater1 {
+  position: absolute;
+  width: 4.5px;
+  height: 4.5px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.4), rgba(105, 105, 105, 0.2));
+  border-radius: 50%;
+  top: 6px;
+  left: 7.5px;
+  box-shadow: inset 0.75px 0.75px 1.5px rgba(0, 0, 0, 0.2);
+}
+
+.medium .crater2 {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.3), rgba(105, 105, 105, 0.15));
+  border-radius: 50%;
+  bottom: 6.75px;
+  right: 5.25px;
+  box-shadow: inset 0.75px 0.75px 0.75px rgba(0, 0, 0, 0.15);
+}
+
+.medium .crater3 {
+  position: absolute;
+  width: 2.25px;
+  height: 2.25px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.25), rgba(105, 105, 105, 0.1));
+  border-radius: 50%;
+  top: 11.25px;
+  right: 8.25px;
+  box-shadow: inset 0.375px 0.375px 0.75px rgba(0, 0, 0, 0.1);
+}
+
+.medium .crater4 {
+  position: absolute;
+  width: 3.75px;
+  height: 3.75px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.35), rgba(105, 105, 105, 0.18));
+  border-radius: 50%;
+  bottom: 4.5px;
+  left: 6px;
+  box-shadow: inset 0.75px 0.75px 1.125px rgba(0, 0, 0, 0.18);
+}
+
+.large .crater1 {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.4), rgba(105, 105, 105, 0.2));
+  border-radius: 50%;
+  top: 8px;
+  left: 10px;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.large .crater2 {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.3), rgba(105, 105, 105, 0.15));
+  border-radius: 50%;
+  bottom: 9px;
+  right: 7px;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.large .crater3 {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.25), rgba(105, 105, 105, 0.1));
+  border-radius: 50%;
+  top: 15px;
+  right: 11px;
+  box-shadow: inset 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.large .crater4 {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: radial-gradient(circle, rgba(128, 128, 128, 0.35), rgba(105, 105, 105, 0.18));
+  border-radius: 50%;
+  bottom: 6px;
+  left: 8px;
+  box-shadow: inset 1px 1px 1.5px rgba(0, 0, 0, 0.18);
+}
