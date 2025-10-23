@@ -33,7 +33,14 @@ Note: Test command is not yet implemented (placeholder script exists).
 - **Dev entry**: `src/main.tsx` (for development server only)
 - **External dependencies**: React and React DOM are externalized (peer dependencies)
 - **TypeScript declarations**: Generated automatically via `vite-plugin-dts` to `dist/types/`
+- **CSS handling**: Uses `vite-plugin-lib-inject-css` to automatically inject CSS imports into bundles
 - **Source maps**: Enabled for debugging
+
+### CSS Auto-Import
+CSS modules are automatically bundled and imported with components. The build process:
+1. Extracts CSS from all components into `dist/index.css`
+2. Automatically injects `import './index.css'` (ESM) or `require('./index.css')` (CommonJS) into the JS bundles
+3. Consumers only need to import the component - CSS is loaded automatically via their bundler
 
 ## Code Organization
 
