@@ -61,6 +61,37 @@ The project uses TypeScript path aliases configured in both `tsconfig.json` and 
 - **Target**: ES2020
 - **Distribution**: `dist/` directory with types in `dist/types/index.d.ts`
 
+## Development Playground
+
+The project includes a Playground component for interactive development and testing of library components.
+
+### Overview
+- **Location**: `src/Playground.tsx`
+- **Usage**: Run `pnpm dev` to start the dev server and view the playground at `http://localhost:3000`
+- **Purpose**: Provides an interactive showcase of all library components during development
+- **Layout**: Responsive CSS Grid layout with minimal styling
+- **Scope**: Development only - not included in the published package
+
+### Current Components
+- **ThemeSwitch**: Interactive theme toggle component with state management
+
+### Adding New Components to Playground
+To showcase a new component in the playground:
+
+1. Import the component in `Playground.tsx` from `./index`
+2. Add state management if the component requires interactive props
+3. Add a new card in the grid:
+```tsx
+<div style={{ border: '1px solid #e0e0e0', borderRadius: '8px', padding: '1.5rem' }}>
+  <h2 style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>ComponentName</h2>
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100px' }}>
+    <YourComponent {...props} />
+  </div>
+</div>
+```
+
+The Playground automatically uses a responsive grid that adjusts based on screen size (minimum 300px per column).
+
 ## Code Style
 
 ### Prettier Configuration

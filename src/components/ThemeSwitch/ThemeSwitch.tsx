@@ -2,12 +2,35 @@ import React from 'react';
 
 import styles from './ThemeSwitch.module.css';
 
+/**
+ * Props for the ThemeSwitch component
+ */
 interface ThemeSwitchProps {
+  /** Whether dark mode is currently enabled */
   enableDarkMode: boolean;
+  /** Callback function to update the dark mode state */
   setEnableDarkMode: (value: boolean) => void;
+  /** Size variant of the switch. Defaults to 'large' */
   size?: 'small' | 'medium' | 'large';
 }
 
+/**
+ * ThemeSwitch Component
+ *
+ * An animated toggle switch for switching between light and dark themes.
+ * Features sun/moon icons with animated clouds (light mode) and stars (dark mode).
+ *
+ * @component
+ * @example
+ * ```tsx
+ * const [darkMode, setDarkMode] = useState(false);
+ * <ThemeSwitch
+ *   enableDarkMode={darkMode}
+ *   setEnableDarkMode={setDarkMode}
+ *   size="medium"
+ * />
+ * ```
+ */
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
   enableDarkMode,
   setEnableDarkMode,
