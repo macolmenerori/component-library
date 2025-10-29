@@ -1,5 +1,7 @@
+import { Playground } from './Playground';
+
 export function App() {
-  return <div>Welcome to your Component Library!</div>;
+  return <Playground />;
 }
 
 export default App;
