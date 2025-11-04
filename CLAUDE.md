@@ -20,7 +20,7 @@ Note: Test command is not yet implemented (placeholder script exists).
 
 ## Technical Constraints
 
-- **Node version**: Must be >=22.0.0 and <23.0.0 (specified in engines)
+- **Node version**: Must be >=24.0.0 and <25.0.0 (specified in engines)
 - **Package manager**: pnpm 10.19.0
 - **Package type**: ESM (type: "module" in package.json)
 - **TypeScript strict mode**: Enabled with strict null checks, noImplicitAny, and noImplicitThis
