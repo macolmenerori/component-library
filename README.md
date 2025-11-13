@@ -12,15 +12,7 @@ A modern React component library built with TypeScript, providing reusable UI co
 
 ## Installation
 
-This package is published to GitHub Packages. To install it in your project, you need to configure npm to use GitHub Packages for the `@macolmenerori` scope.
-
-Create or update a `.npmrc` file in your project root with the following content:
-
-```
-@macolmenerori:registry=https://npm.pkg.github.com
-```
-
-Then install the package:
+This package is published to [npm](https://www.npmjs.com/package/@macolmenerori/component-library) and can be installed directly without any additional configuration.
 
 Using npm:
 
@@ -42,19 +34,42 @@ yarn add @macolmenerori/component-library
 
 ## Usage
 
-Import components from the library:
+Import components from the library and use them in your React application.
+
+### Available Components
+
+<details>
+<summary><strong>ThemeSwitch</strong> - An animated toggle switch for light/dark theme switching</summary>
+
+A visually appealing theme toggle component with sun/moon animations, clouds, and stars.
+
+**Props:**
+- `enableDarkMode` (boolean, required): Current dark mode state
+- `setEnableDarkMode` (function, required): Callback to update dark mode state
+- `size` (optional): Size variant - `'small'`, `'medium'`, or `'large'` (default: `'large'`)
+
+**Example:**
 
 ```tsx
+import { useState } from 'react';
 import { ThemeSwitch } from '@macolmenerori/component-library';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
     <div>
-      <ThemeSwitch />
+      <ThemeSwitch
+        enableDarkMode={darkMode}
+        setEnableDarkMode={setDarkMode}
+        size="medium"
+      />
     </div>
   );
 }
 ```
+
+</details>
 
 ## Peer Dependencies
 
