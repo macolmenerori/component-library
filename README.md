@@ -71,6 +71,54 @@ function App() {
 
 </details>
 
+<details>
+<summary><strong>MarkdownRender</strong> - A component for rendering markdown strings as HTML</summary>
+
+A simple and flexible markdown renderer with GitHub Flavored Markdown (GFM) support, including tables, task lists, strikethrough, and code blocks.
+
+**Props:**
+- `content` (string, required): The markdown string to render
+- `className` (string, optional): CSS class name for the container element
+
+**Features:**
+- Full GitHub Flavored Markdown support
+- Tables, task lists, strikethrough
+- Code blocks with syntax highlighting support
+- Autolinks
+- Customizable styling via className prop
+
+**Example:**
+
+```tsx
+import MarkdownRender from '@macolmenerori/component-library';
+
+function App() {
+  const markdownContent = `
+# Hello World
+
+This is **bold** and this is *italic*.
+
+## Features
+- Lists
+- ~~Strikethrough~~
+- [Links](https://example.com)
+- \`inline code\`
+
+| Header 1 | Header 2 |
+| -------- | -------- |
+| Cell 1   | Cell 2   |
+  `;
+
+  return (
+    <div>
+      <MarkdownRender content={markdownContent} className="my-markdown" />
+    </div>
+  );
+}
+```
+
+</details>
+
 ## Peer Dependencies
 
 This library requires the following peer dependencies:
