@@ -74,6 +74,7 @@ The project includes a Playground component for interactive development and test
 
 ### Current Components
 - **ThemeSwitch**: Interactive theme toggle component with state management
+- **MarkdownRender**: Markdown rendering component with GitHub Flavored Markdown support
 
 ### Adding New Components to Playground
 To showcase a new component in the playground:
@@ -124,9 +125,10 @@ Import order enforced:
 ## Publishing
 
 ### Package Configuration
-- **Registry**: Published to GitHub Packages (`https://npm.pkg.github.com`)
+- **Registry**: Published to npm (`https://registry.npmjs.org/`)
 - **Access**: Public package
 - **Peer dependencies**: React ^18.0.0 or ^19.0.0, React DOM ^18.0.0 or ^19.0.0
+- **Regular dependencies**: react-markdown ^10.1.0, remark-gfm ^4.0.1 (bundled with the library)
 - **Package contents**: Only `dist/` folder is included in published package
 
 ### Entry Points
@@ -136,15 +138,82 @@ Import order enforced:
 - **Exports field**: Modern conditional exports supporting both ESM (`import`) and CommonJS (`require`) with proper type definitions
 
 ### Publishing Process
-1. Ensure `GITHUB_PACKAGES_TOKEN` environment variable is set
-2. Run `pnpm build` to create production bundle
-3. Run `pnpm publish` to publish to GitHub Packages
+1. Run `pnpm build` to create production bundle
+2. Run `pnpm publish:npm` to publish to npm (or `pnpm publish:github` for GitHub Packages)
 
 ### Consumer Installation
-Users need to configure `.npmrc`:
-```
-@macolmenerori:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
+Install directly from npm:
+```bash
+pnpm add @macolmenerori/component-library
 ```
 
-Then install with: `pnpm add @macolmenerori/component-library`
+## Available Components
+
+### ThemeSwitch
+An animated toggle switch for light/dark theme switching with sun/moon animations, clouds, and stars.
+
+**Location**: `src/components/ThemeSwitch/`
+**Export pattern**: Default export
+**Has CSS**: Yes (`ThemeSwitch.module.css`)
+**Dependencies**: None (pure React and CSS)
+
+**Props:**
+- `enableDarkMode` (boolean, required): Current dark mode state
+- `setEnableDarkMode` (function, required): Callback to update dark mode state
+- `size` (optional): Size variant - `'small'`, `'medium'`, or `'large'` (default: `'large'`)
+
+**Import:**
+```tsx
+import { ThemeSwitch } from '@macolmenerori/component-library';
+```
+
+### MarkdownRender
+A component for rendering markdown strings as HTML with GitHub Flavored Markdown (GFM) support.
+
+**Location**: `src/components/MarkdownRender/`
+**Export pattern**: Default export
+**Has CSS**: No (consumers style via className)
+**Dependencies**: react-markdown, remark-gfm (bundled as regular dependencies)
+
+**Props:**
+- `content` (string, required): The markdown string to render
+- `className` (string, optional): CSS class name for the container element
+
+**Features:**
+- Full GitHub Flavored Markdown support (tables, task lists, strikethrough)
+- Code blocks with syntax highlighting support
+- Autolinks
+- Customizable styling via className prop
+
+**Import:**
+```tsx
+import { MarkdownRender } from '@macolmenerori/component-library';
+```
+
+**Note on Dependencies**: `react-markdown` and `remark-gfm` are bundled as regular dependencies (not peer dependencies) because MarkdownRender abstracts their implementation. This provides simpler installation and better DX for consumers.
+
+## Component Development Guidelines
+
+### Export Pattern
+All components use **default exports** at the component level and are re-exported as named exports from `src/index.ts`:
+
+```typescript
+// In component file (e.g., MyComponent.tsx)
+const MyComponent: React.FC<MyComponentProps> = (props) => { ... };
+export default MyComponent;
+
+// In src/index.ts
+export { default as MyComponent } from './components/MyComponent/MyComponent';
+export type { MyComponentProps } from './components/MyComponent/MyComponent';
+```
+
+### Component Structure
+Each component should have:
+- `ComponentName.tsx` - Component implementation
+- `ComponentName.module.css` - CSS module (if needed for styling)
+- `README.md` - Component documentation with usage examples
+
+### Dependency Guidelines
+- **Peer dependencies**: Use only for framework libraries (React, React-DOM)
+- **Regular dependencies**: Use for utility/rendering libraries that are implementation details
+- **Rule of thumb**: If consumers interact with the dependency directly, consider peer dependency. If it's abstracted by your component, use regular dependency.
