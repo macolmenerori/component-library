@@ -46,11 +46,12 @@ function Example() {
 - **TypeScript version** (if applicable): [e.g., 5.7.3]
 - **Browser** (if applicable): [e.g., Chrome 120, Safari 17]
 - **Node version**: [e.g., 22.0.0]
-- **Package manager**: [e.g., pnpm 10.19.0]
+- **Package manager**: [e.g., pnpm 10.24.0]
 
 ## Additional Context
 
 Add any other context about the problem here, such as:
+
 - Screenshots or videos
 - Error messages or console output
 - Related issues or discussions
