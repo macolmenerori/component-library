@@ -44,6 +44,7 @@ Import components from the library and use them in your React application.
 A visually appealing theme toggle component with sun/moon animations, clouds, and stars.
 
 **Props:**
+
 - `enableDarkMode` (boolean, required): Current dark mode state
 - `setEnableDarkMode` (function, required): Callback to update dark mode state
 - `size` (optional): Size variant - `'small'`, `'medium'`, or `'large'` (default: `'large'`)
@@ -59,11 +60,7 @@ function App() {
 
   return (
     <div>
-      <ThemeSwitch
-        enableDarkMode={darkMode}
-        setEnableDarkMode={setDarkMode}
-        size="medium"
-      />
+      <ThemeSwitch enableDarkMode={darkMode} setEnableDarkMode={setDarkMode} size="medium" />
     </div>
   );
 }
@@ -77,10 +74,12 @@ function App() {
 A simple and flexible markdown renderer with GitHub Flavored Markdown (GFM) support, including tables, task lists, strikethrough, and code blocks.
 
 **Props:**
+
 - `content` (string, required): The markdown string to render
 - `className` (string, optional): CSS class name for the container element
 
 **Features:**
+
 - Full GitHub Flavored Markdown support
 - Tables, task lists, strikethrough
 - Code blocks with syntax highlighting support
@@ -135,7 +134,7 @@ This section is for contributors working on the library itself.
 ### Prerequisites
 
 - Node.js >= 22.0.0 and < 23.0.0
-- pnpm 10.19.0
+- pnpm 10.24.0
 
 ### Setup
 
