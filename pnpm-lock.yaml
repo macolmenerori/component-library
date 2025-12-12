@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       react-markdown:
-        specifier: ^10.1.0
+        specifier: ^10.0.0
         version: 10.1.0(@types/react@19.2.7)(react@19.2.1)
       remark-gfm:
-        specifier: ^4.0.1
+        specifier: ^4.0.0
         version: 4.0.1
     devDependencies:
       '@eslint/js':
