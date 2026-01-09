@@ -17,7 +17,13 @@ An animated toggle switch component for switching between light and dark themes.
 npm install @macolmenerori/component-library
 ```
 
+## Import
+
 ```tsx
+// Recommended: Subpath import (no react-markdown dependency required)
+import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
+
+// Alternative: Main entry (requires all peer dependencies)
 import { ThemeSwitch } from '@macolmenerori/component-library';
 ```
 
@@ -25,7 +31,7 @@ import { ThemeSwitch } from '@macolmenerori/component-library';
 
 ```tsx
 import React, { useState } from 'react';
-import { ThemeSwitch } from '@macolmenerori/component-library';
+import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);

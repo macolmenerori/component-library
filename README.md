@@ -4,10 +4,10 @@ A modern React component library built with TypeScript, providing reusable UI co
 
 ## Features
 
-- Built with React and TypeScript
+- Built with React 18/19 and TypeScript
 - Fully typed components with TypeScript declarations
 - ESM and CommonJS support
-- Tree-shakeable exports
+- **Subpath exports** for tree-shaking and optional dependencies
 - Strict TypeScript configuration for type safety
 
 ## Installation
@@ -34,7 +34,15 @@ yarn add @macolmenerori/component-library
 
 ## Usage
 
-Import components from the library and use them in your React application.
+Import components from the library. You can use the main entry point or subpath imports for better tree-shaking.
+
+### Subpath Exports
+
+| Import Path                                        | Components     | Dependencies Required             |
+| -------------------------------------------------- | -------------- | --------------------------------- |
+| `@macolmenerori/component-library`                 | All            | react, react-markdown, remark-gfm |
+| `@macolmenerori/component-library/theme-switch`    | ThemeSwitch    | react                             |
+| `@macolmenerori/component-library/markdown-render` | MarkdownRender | react, react-markdown, remark-gfm |
 
 ### Available Components
 
@@ -53,7 +61,8 @@ A visually appealing theme toggle component with sun/moon animations, clouds, an
 
 ```tsx
 import { useState } from 'react';
-import { ThemeSwitch } from '@macolmenerori/component-library';
+// Subpath import (recommended - no react-markdown dependency required)
+import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -73,6 +82,8 @@ function App() {
 
 A simple and flexible markdown renderer with GitHub Flavored Markdown (GFM) support, including tables, task lists, strikethrough, and code blocks.
 
+> **Note:** This component requires `react-markdown` and `remark-gfm` peer dependencies.
+
 **Props:**
 
 - `content` (string, required): The markdown string to render
@@ -89,7 +100,7 @@ A simple and flexible markdown renderer with GitHub Flavored Markdown (GFM) supp
 **Example:**
 
 ```tsx
-import MarkdownRender from '@macolmenerori/component-library';
+import { MarkdownRender } from '@macolmenerori/component-library/markdown-render';
 
 function App() {
   const markdownContent = `
@@ -120,12 +131,17 @@ This is **bold** and this is *italic*.
 
 ## Peer Dependencies
 
-This library requires the following peer dependencies:
+**Required:**
 
-- React: ^18.0.0 or ^19.0.0
-- React DOM: ^18.0.0 or ^19.0.0
+- `react`: ^18.0.0 or ^19.0.0
+- `react-dom`: ^18.0.0 or ^19.0.0
 
-Make sure these are installed in your project.
+**Optional** (only needed for MarkdownRender):
+
+- `react-markdown`: ^10.0.0
+- `react-gfm`: ^4.0.0
+
+If you only use ThemeSwitch via the subpath import (`/theme-switch`), you don't need to install react-markdown.
 
 ## Development
 
@@ -159,11 +175,12 @@ To build the library:
 pnpm build
 ```
 
-This will generate:
+This will generate multiple entry points:
 
-- ESM bundle at `dist/index.js`
-- CommonJS bundle at `dist/index.cjs`
-- TypeScript declarations at `dist/types/`
+- `dist/index.js` / `dist/index.cjs` - Main entry (all components)
+- `dist/theme-switch.js` / `dist/theme-switch.cjs` - ThemeSwitch only
+- `dist/markdown-render.js` / `dist/markdown-render.cjs` - MarkdownRender only
+- `dist/types/` - TypeScript declarations
 
 ### Publishing
 
