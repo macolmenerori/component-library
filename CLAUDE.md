@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React component library (`@macolmenerori/component-library`) published to GitHub Packages. It's built with React 19, TypeScript, Vite, and uses pnpm as the package manager.
+This is a React component library (`@macolmenerori/component-library`) published to npm. It's built with TypeScript, Vite, and uses pnpm as the package manager. Compatible with React 18 and React 19.
 
 ## Development Commands
 
@@ -28,21 +28,20 @@ Note: Test command is not yet implemented (placeholder script exists).
 ## Build System (Vite)
 
 - **Bundler**: Vite 7.x configured for library mode
-- **Output formats**: ESM (`index.js`) and CommonJS (`index.cjs`)
-- **Entry point**: `src/index.ts`
+- **Output formats**: ESM (`.js`) and CommonJS (`.cjs`)
+- **Entry points**: Multiple entry points for tree-shaking support
+  - `src/index.ts` - Main entry (all components)
+  - `src/components/ThemeSwitch/index.ts` - ThemeSwitch only
+  - `src/components/MarkdownRender/index.ts` - MarkdownRender only
 - **Dev entry**: `src/main.tsx` (for development server only)
-- **External dependencies**: React and React DOM are externalized (peer dependencies)
+- **External dependencies**: React, React DOM, react-markdown, and remark-gfm are externalized
 - **TypeScript declarations**: Generated automatically via `vite-plugin-dts` to `dist/types/`
 - **CSS handling**: Uses `vite-plugin-lib-inject-css` to automatically inject CSS imports into bundles
 - **Source maps**: Enabled for debugging
 
 ### CSS Auto-Import
 
-CSS modules are automatically bundled and imported with components. The build process:
-
-1. Extracts CSS from all components into `dist/index.css`
-2. Automatically injects `import './index.css'` (ESM) or `require('./index.css')` (CommonJS) into the JS bundles
-3. Consumers only need to import the component - CSS is loaded automatically via their bundler
+CSS modules are automatically bundled and imported with components. Each entry point bundles only its required CSS.
 
 ## Code Organization
 
@@ -145,15 +144,20 @@ Import order enforced:
 - **Registry**: Published to npm (`https://registry.npmjs.org/`)
 - **Access**: Public package
 - **Peer dependencies**: React ^18.0.0 or ^19.0.0, React DOM ^18.0.0 or ^19.0.0
-- **Regular dependencies**: react-markdown ^10.1.0, remark-gfm ^4.0.1 (bundled with the library)
+- **Optional peer dependencies**: react-markdown ^10.0.0, remark-gfm ^4.0.0 (only required for MarkdownRender)
 - **Package contents**: Only `dist/` folder is included in published package
 
-### Entry Points
+### Entry Points and Subpath Exports
 
-- **Main (CommonJS)**: `dist/index.cjs`
-- **Module (ESM)**: `dist/index.js`
-- **Types**: `dist/types/index.d.ts`
-- **Exports field**: Modern conditional exports supporting both ESM (`import`) and CommonJS (`require`) with proper type definitions
+The library supports subpath exports for tree-shaking and optional dependencies:
+
+| Import Path | Entry Point | Dependencies Required |
+|-------------|-------------|----------------------|
+| `@macolmenerori/component-library` | All components | react, react-markdown, remark-gfm |
+| `@macolmenerori/component-library/theme-switch` | ThemeSwitch only | react |
+| `@macolmenerori/component-library/markdown-render` | MarkdownRender only | react, react-markdown, remark-gfm |
+
+Each subpath provides ESM, CommonJS, and TypeScript declarations.
 
 ### Publishing Process
 
@@ -188,7 +192,11 @@ An animated toggle switch for light/dark theme switching with sun/moon animation
 **Import:**
 
 ```tsx
+// Main entry (requires all peer dependencies)
 import { ThemeSwitch } from '@macolmenerori/component-library';
+
+// Subpath import (no react-markdown required)
+import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 ```
 
 ### MarkdownRender
@@ -198,7 +206,7 @@ A component for rendering markdown strings as HTML with GitHub Flavored Markdown
 **Location**: `src/components/MarkdownRender/`
 **Export pattern**: Default export
 **Has CSS**: No (consumers style via className)
-**Dependencies**: react-markdown, remark-gfm (bundled as regular dependencies)
+**Dependencies**: react-markdown, remark-gfm (optional peer dependencies)
 
 **Props:**
 
@@ -215,32 +223,41 @@ A component for rendering markdown strings as HTML with GitHub Flavored Markdown
 **Import:**
 
 ```tsx
+// Main entry
 import { MarkdownRender } from '@macolmenerori/component-library';
+
+// Subpath import
+import { MarkdownRender } from '@macolmenerori/component-library/markdown-render';
 ```
 
-**Note on Dependencies**: `react-markdown` and `remark-gfm` are bundled as regular dependencies (not peer dependencies) because MarkdownRender abstracts their implementation. This provides simpler installation and better DX for consumers.
+**Note on Dependencies**: `react-markdown` and `remark-gfm` are optional peer dependencies. Consumers must install them when using MarkdownRender. Using the subpath import (`/theme-switch`) for ThemeSwitch avoids requiring these dependencies.
 
 ## Component Development Guidelines
 
 ### Export Pattern
 
-All components use **default exports** at the component level and are re-exported as named exports from `src/index.ts`:
+Each component has its own entry point (`index.ts`) that re-exports from the component file:
 
 ```typescript
 // In component file (e.g., MyComponent.tsx)
+export interface MyComponentProps { ... }
 const MyComponent: React.FC<MyComponentProps> = (props) => { ... };
 export default MyComponent;
 
-// In src/index.ts
-export { default as MyComponent } from './components/MyComponent/MyComponent';
-export type { MyComponentProps } from './components/MyComponent/MyComponent';
+// In component's index.ts (e.g., src/components/MyComponent/index.ts)
+export type { MyComponentProps } from './MyComponent';
+export { default as MyComponent } from './MyComponent';
+
+// In src/index.ts (re-exports all components)
+export * from './components/MyComponent';
 ```
 
 ### Component Structure
 
 Each component should have:
 
-- `ComponentName.tsx` - Component implementation
+- `index.ts` - Component entry point for subpath exports
+- `ComponentName.tsx` - Component implementation (with exported props interface)
 - `ComponentName.module.css` - CSS module (if needed for styling)
 - `README.md` - Component documentation with usage examples
 

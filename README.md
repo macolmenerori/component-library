@@ -4,7 +4,7 @@ A modern React component library built with TypeScript, providing reusable UI co
 
 ## Features
 
-- Built with React 19 and TypeScript
+- Built with React and TypeScript
 - Fully typed components with TypeScript declarations
 - ESM and CommonJS support
 - Tree-shakeable exports
@@ -133,8 +133,8 @@ This section is for contributors working on the library itself.
 
 ### Prerequisites
 
-- Node.js >= 22.0.0 and < 23.0.0
-- pnpm 10.24.0
+- Node.js 24
+- pnpm 10.25.0
 
 ### Setup
 
@@ -174,9 +174,9 @@ To publish a new version:
 
 ## Technology Stack
 
-- **React** 19.0.0 - UI library
-- **TypeScript** 5.7.3 - Type safety
-- **Vite** 7.0.5 - Build tool and dev server
+- **React** 18.0.0 || 19.0.0 - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
 
