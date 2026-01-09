@@ -11,11 +11,19 @@ A component that renders markdown strings as HTML with GitHub Flavored Markdown 
 ## Installation
 
 ```bash
-npm install @macolmenerori/component-library
+npm install @macolmenerori/component-library react-markdown remark-gfm
 ```
 
+> **Note:** This component requires `react-markdown` and `remark-gfm` as peer dependencies.
+
+## Import
+
 ```tsx
-import MarkdownRender from '@macolmenerori/component-library';
+// Subpath import
+import { MarkdownRender } from '@macolmenerori/component-library/markdown-render';
+
+// Main entry
+import { MarkdownRender } from '@macolmenerori/component-library';
 ```
 
 ## Usage
@@ -34,7 +42,7 @@ import MarkdownRender from '@macolmenerori/component-library';
 ## Example
 
 ```tsx
-import MarkdownRender from '@macolmenerori/component-library';
+import { MarkdownRender } from '@macolmenerori/component-library/markdown-render';
 
 function App() {
   const markdownContent = `
