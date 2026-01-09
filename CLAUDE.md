@@ -36,12 +36,12 @@ Note: Test command is not yet implemented (placeholder script exists).
 - **Dev entry**: `src/main.tsx` (for development server only)
 - **External dependencies**: React, React DOM, react-markdown, and remark-gfm are externalized
 - **TypeScript declarations**: Generated automatically via `vite-plugin-dts` to `dist/types/`
-- **CSS handling**: Uses `vite-plugin-lib-inject-css` to automatically inject CSS imports into bundles
+- **CSS handling**: CSS modules are extracted to separate files during build. Consumers must import CSS manually to support SSG/SSR environments.
 - **Source maps**: Enabled for debugging
 
-### CSS Auto-Import
+### CSS Manual Import
 
-CSS modules are automatically bundled and imported with components. Each entry point bundles only its required CSS.
+CSS modules are bundled into separate CSS files in the `dist/` directory. Consumers must manually import the CSS files before using components that require styling (e.g., ThemeSwitch). This pattern supports SSG/SSR environments where Node.js cannot execute CSS import statements.
 
 ## Code Organization
 
@@ -155,9 +155,10 @@ The library supports subpath exports for tree-shaking and optional dependencies:
 |-------------|-------------|----------------------|
 | `@macolmenerori/component-library` | All components | react, react-markdown, remark-gfm |
 | `@macolmenerori/component-library/theme-switch` | ThemeSwitch only | react |
+| `@macolmenerori/component-library/theme-switch-css` | ThemeSwitch CSS | none (CSS file) |
 | `@macolmenerori/component-library/markdown-render` | MarkdownRender only | react, react-markdown, remark-gfm |
 
-Each subpath provides ESM, CommonJS, and TypeScript declarations.
+Each subpath provides ESM, CommonJS, and TypeScript declarations. CSS files are exported separately to support SSG/SSR environments.
 
 ### Publishing Process
 
@@ -192,12 +193,17 @@ An animated toggle switch for light/dark theme switching with sun/moon animation
 **Import:**
 
 ```tsx
+// Import CSS separately (required for styling, supports SSG/SSR)
+import '@macolmenerori/component-library/theme-switch-css';
+
 // Main entry (requires all peer dependencies)
 import { ThemeSwitch } from '@macolmenerori/component-library';
 
-// Subpath import (no react-markdown required)
+// Subpath import (recommended - no react-markdown required)
 import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 ```
+
+**Note:** ThemeSwitch requires manual CSS import to support SSG/SSR environments. The CSS must be imported before using the component.
 
 ### MarkdownRender
 

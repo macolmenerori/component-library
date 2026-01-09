@@ -20,6 +20,9 @@ npm install @macolmenerori/component-library
 ## Import
 
 ```tsx
+// Import CSS separately (required for styling)
+import '@macolmenerori/component-library/theme-switch-css';
+
 // Recommended: Subpath import (no react-markdown dependency required)
 import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 
@@ -27,10 +30,13 @@ import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 import { ThemeSwitch } from '@macolmenerori/component-library';
 ```
 
+> **Note:** ThemeSwitch requires manual CSS import to support SSG/SSR environments. Import the CSS file before using the component.
+
 ## Usage
 
 ```tsx
 import React, { useState } from 'react';
+import '@macolmenerori/component-library/theme-switch-css';
 import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 
 function App() {
@@ -61,18 +67,26 @@ The component is fully accessible with:
 ### Basic Usage
 
 ```tsx
-<ThemeSwitch enableDarkMode={darkMode} setEnableDarkMode={setDarkMode} />
+import '@macolmenerori/component-library/theme-switch-css';
+import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
+
+<ThemeSwitch enableDarkMode={darkMode} setEnableDarkMode={setDarkMode} />;
 ```
 
 ### With Different Sizes
 
 ```tsx
-<ThemeSwitch enableDarkMode={darkMode} setEnableDarkMode={setDarkMode} size="small" />
+import '@macolmenerori/component-library/theme-switch-css';
+import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
+
+<ThemeSwitch enableDarkMode={darkMode} setEnableDarkMode={setDarkMode} size="small" />;
 ```
 
 ### Integration with Theme Provider
 
 ```tsx
+import '@macolmenerori/component-library/theme-switch-css';
+import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 import { useTheme } from './context/ThemeContext';
 
 function ThemeToggle() {
