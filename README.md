@@ -61,6 +61,8 @@ A visually appealing theme toggle component with sun/moon animations, clouds, an
 
 ```tsx
 import { useState } from 'react';
+// Import CSS separately (required for styling)
+import '@macolmenerori/component-library/theme-switch-css';
 // Subpath import (recommended - no react-markdown dependency required)
 import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 
@@ -74,6 +76,8 @@ function App() {
   );
 }
 ```
+
+> **Note:** ThemeSwitch requires manual CSS import to support SSG/SSR environments. Import the CSS file before using the component.
 
 </details>
 
