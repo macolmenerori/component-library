@@ -5,7 +5,7 @@ import styles from './ThemeSwitch.module.css';
 /**
  * Props for the ThemeSwitch component
  */
-interface ThemeSwitchProps {
+export interface ThemeSwitchProps {
   /** Whether dark mode is currently enabled */
   enableDarkMode: boolean;
   /** Callback function to update the dark mode state */

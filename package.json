@@ -1,6 +1,6 @@
 {
   "name": "@macolmenerori/component-library",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "type": "module",
   "description": "",
   "keywords": [],
@@ -27,8 +27,31 @@
         "types": "./dist/types/index.d.ts",
         "default": "./dist/index.cjs"
       }
+    },
+    "./theme-switch": {
+      "import": {
+        "types": "./dist/types/components/ThemeSwitch/index.d.ts",
+        "default": "./dist/theme-switch.js"
+      },
+      "require": {
+        "types": "./dist/types/components/ThemeSwitch/index.d.ts",
+        "default": "./dist/theme-switch.cjs"
+      }
+    },
+    "./markdown-render": {
+      "import": {
+        "types": "./dist/types/components/MarkdownRender/index.d.ts",
+        "default": "./dist/markdown-render.js"
+      },
+      "require": {
+        "types": "./dist/types/components/MarkdownRender/index.d.ts",
+        "default": "./dist/markdown-render.cjs"
+      }
     }
   },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
     "dist"
   ],
@@ -49,8 +72,8 @@
     "publish:github": "pnpm publish --registry https://npm.pkg.github.com"
   },
   "peerDependencies": {
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
     "react-markdown": "^10.0.0",
     "remark-gfm": "^4.0.0"
   },

@@ -10,8 +10,9 @@ export default defineConfig({
     libInjectCss(),
     dts({
       include: ['src/**/*.ts', 'src/**/*.tsx'],
+      exclude: ['src/main.tsx', 'src/App.tsx', 'src/Playground.tsx'],
       outDir: 'dist/types',
-      rollupTypes: true
+      rollupTypes: false
     })
   ],
   server: {
@@ -19,10 +20,12 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      name: 'ComponentLibrary',
-      formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format === 'es' ? 'js' : 'cjs'}`
+      entry: {
+        index: resolve(__dirname, 'src/index.ts'),
+        'theme-switch': resolve(__dirname, 'src/components/ThemeSwitch/index.ts'),
+        'markdown-render': resolve(__dirname, 'src/components/MarkdownRender/index.ts')
+      },
+      formats: ['es', 'cjs']
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime', 'react-markdown', 'remark-gfm'],
