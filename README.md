@@ -154,7 +154,7 @@ This section is for contributors working on the library itself.
 ### Prerequisites
 
 - Node.js 24
-- pnpm 10.25.0
+- pnpm 10.28.0
 
 ### Setup
 
