@@ -7,6 +7,10 @@ A component that renders markdown strings as HTML with GitHub Flavored Markdown 
 - Regular Markdown
 - Support for [GitHub Flavored Markdown](https://github.github.com/gfm/)
 - Support for custom `className`
+- Custom component overrides for markdown elements
+- Built-in link target control (open links in new tab)
+- Built-in responsive images support
+- Support for rehype plugins
 
 ## Installation
 
@@ -34,12 +38,18 @@ import { MarkdownRender } from '@macolmenerori/component-library';
 
 ## Props
 
-| Prop        | Type     | Required | Description                               |
-| ----------- | -------- | -------- | ----------------------------------------- |
-| `content`   | `string` | Yes      | The markdown string to render             |
-| `className` | `string` | No       | Optional CSS class name for the container |
+| Prop               | Type                                       | Required | Description                                    |
+| ------------------ | ------------------------------------------ | -------- | ---------------------------------------------- |
+| `content`          | `string`                                   | Yes      | The markdown string to render                  |
+| `className`        | `string`                                   | No       | Optional CSS class name for the container      |
+| `components`       | `Partial<Components>`                      | No       | Custom component overrides for markdown elements |
+| `linkTarget`       | `'_blank' \| '_self' \| '_parent' \| '_top'` | No     | Target for all links (defaults to `'_self'`)   |
+| `responsiveImages` | `boolean`                                  | No       | Make all images responsive (defaults to `false`) |
+| `rehypePlugins`    | `PluggableList`                            | No       | Optional rehype plugins for HTML processing    |
 
-## Example
+## Examples
+
+### Basic Usage
 
 ```tsx
 import { MarkdownRender } from '@macolmenerori/component-library/markdown-render';
@@ -64,3 +74,63 @@ This is **bold** and this is *italic*.
   return <MarkdownRender content={markdownContent} className="my-markdown" />;
 }
 ```
+
+### Links Open in New Tab
+
+```tsx
+<MarkdownRender
+  content={markdownContent}
+  linkTarget="_blank"
+/>
+```
+
+When `linkTarget="_blank"` is set, all links will have `target="_blank"` and `rel="noreferrer"` for security.
+
+### Responsive Images
+
+```tsx
+<MarkdownRender
+  content={markdownContent}
+  responsiveImages={true}
+/>
+```
+
+When `responsiveImages={true}` is set, all images will have `max-width: 100%` and `height: auto`.
+
+### Custom Components
+
+```tsx
+<MarkdownRender
+  content={markdownContent}
+  components={{
+    a: ({ children, ...props }) => (
+      <a {...props} target="_blank" rel="noreferrer noopener">
+        {children} ↗
+      </a>
+    ),
+    img: (props) => (
+      <img
+        {...props}
+        style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
+        loading="lazy"
+      />
+    )
+  }}
+/>
+```
+
+> **Note:** Custom components take precedence over `linkTarget` and `responsiveImages` props.
+
+### With Rehype Plugins
+
+```tsx
+import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
+
+<MarkdownRender
+  content={markdownContent}
+  rehypePlugins={[rehypeHighlight, rehypeRaw]}
+/>
+```
+
+> **Note:** If using rehype plugins, you need to install them separately (e.g., `npm install rehype-highlight rehype-raw`).
