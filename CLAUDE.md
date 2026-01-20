@@ -218,6 +218,10 @@ A component for rendering markdown strings as HTML with GitHub Flavored Markdown
 
 - `content` (string, required): The markdown string to render
 - `className` (string, optional): CSS class name for the container element
+- `components` (Partial<Components>, optional): Custom component overrides for markdown elements
+- `linkTarget` ('_blank' | '_self' | '_parent' | '_top', optional): Target for all links (defaults to '_self')
+- `responsiveImages` (boolean, optional): Make all images responsive (defaults to false)
+- `rehypePlugins` (PluggableList, optional): Optional rehype plugins for HTML processing
 
 **Features:**
 
@@ -225,6 +229,10 @@ A component for rendering markdown strings as HTML with GitHub Flavored Markdown
 - Code blocks with syntax highlighting support
 - Autolinks
 - Customizable styling via className prop
+- Custom component overrides for markdown elements
+- Built-in link target control (e.g., open links in new tab with `linkTarget="_blank"`)
+- Built-in responsive images support
+- Support for rehype plugins
 
 **Import:**
 
@@ -234,6 +242,26 @@ import { MarkdownRender } from '@macolmenerori/component-library';
 
 // Subpath import
 import { MarkdownRender } from '@macolmenerori/component-library/markdown-render';
+```
+
+**Usage Examples:**
+
+```tsx
+// Basic usage
+<MarkdownRender content={markdownContent} />
+
+// Links open in new tab, images are responsive
+<MarkdownRender content={markdownContent} linkTarget="_blank" responsiveImages={true} />
+
+// Custom components
+<MarkdownRender
+  content={markdownContent}
+  components={{
+    a: ({ children, ...props }) => (
+      <a {...props} target="_blank" rel="noreferrer">{children}</a>
+    )
+  }}
+/>
 ```
 
 **Note on Dependencies**: `react-markdown` and `remark-gfm` are optional peer dependencies. Consumers must install them when using MarkdownRender. Using the subpath import (`/theme-switch`) for ThemeSwitch avoids requiring these dependencies.
