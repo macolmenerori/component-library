@@ -22,8 +22,9 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
-        'theme-switch': resolve(__dirname, 'src/components/ThemeSwitch/index.ts'),
-        'markdown-render': resolve(__dirname, 'src/components/MarkdownRender/index.ts')
+        'markdown-render': resolve(__dirname, 'src/components/MarkdownRender/index.ts'),
+        'monthly-calendar': resolve(__dirname, 'src/components/MonthlyCalendar/index.ts'),
+        'theme-switch': resolve(__dirname, 'src/components/ThemeSwitch/index.ts')
       },
       formats: ['es', 'cjs']
     },

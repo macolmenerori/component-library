@@ -32,6 +32,7 @@ Note: Test command is not yet implemented (placeholder script exists).
 - **Entry points**: Multiple entry points for tree-shaking support
   - `src/index.ts` - Main entry (all components)
   - `src/components/ThemeSwitch/index.ts` - ThemeSwitch only
+  - `src/components/MonthlyCalendar/index.ts` - MonthlyCalendar only
   - `src/components/MarkdownRender/index.ts` - MarkdownRender only
 - **Dev entry**: `src/main.tsx` (for development server only)
 - **External dependencies**: React, React DOM, react-markdown, and remark-gfm are externalized
@@ -81,6 +82,7 @@ The project includes a Playground component for interactive development and test
 ### Current Components
 
 - **ThemeSwitch**: Interactive theme toggle component with state management
+- **MonthlyCalendar**: Monthly calendar grid with navigation and annotation demos
 - **MarkdownRender**: Markdown rendering component with GitHub Flavored Markdown support
 
 ### Adding New Components to Playground
@@ -156,6 +158,7 @@ The library supports subpath exports for tree-shaking and optional dependencies:
 | `@macolmenerori/component-library` | All components | react, react-markdown, remark-gfm |
 | `@macolmenerori/component-library/theme-switch` | ThemeSwitch only | react |
 | `@macolmenerori/component-library/theme-switch-css` | ThemeSwitch CSS | none (CSS file) |
+| `@macolmenerori/component-library/monthly-calendar` | MonthlyCalendar only | react |
 | `@macolmenerori/component-library/markdown-render` | MarkdownRender only | react, react-markdown, remark-gfm |
 
 Each subpath provides ESM, CommonJS, and TypeScript declarations. CSS files are exported separately to support SSG/SSR environments.
@@ -204,6 +207,36 @@ import { ThemeSwitch } from '@macolmenerori/component-library/theme-switch';
 ```
 
 **Note:** ThemeSwitch requires manual CSS import to support SSG/SSR environments. The CSS must be imported before using the component.
+
+### MonthlyCalendar
+
+A zero-dependency monthly calendar grid rendered as a semantic HTML table with annotation support and built-in themes.
+
+**Location**: `src/components/MonthlyCalendar/`
+**Export pattern**: Default export
+**Has CSS**: No (inline styles only)
+**Dependencies**: None (pure React)
+
+**Props:**
+
+- `year` (number, required): Full four-digit year (e.g. 2026)
+- `month` (number, required): Month to display, 1-based (1 = January, 12 = December)
+- `annotations` ((ReactNode | null | undefined)[], optional): Array of content per day. `annotations[0]` maps to Day 1
+- `headers` ([string, string, string, string, string, string, string], optional): Array of 7 weekday labels. Omit to hide header row
+- `style` (CSSProperties, optional): Inline styles merged onto the `<table>` element
+- `darkMode` (boolean, optional): Enables dark color theme (default: `false`)
+
+**Import:**
+
+```tsx
+// Main entry (requires all peer dependencies)
+import { MonthlyCalendar } from '@macolmenerori/component-library';
+
+// Subpath import (recommended - no react-markdown required)
+import { MonthlyCalendar } from '@macolmenerori/component-library/monthly-calendar';
+```
+
+**Note:** No CSS import is needed. MonthlyCalendar uses inline styles only. The component does not set its own background — wrap it in a dark container when using `darkMode={true}`.
 
 ### MarkdownRender
 
