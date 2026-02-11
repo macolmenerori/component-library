@@ -1,11 +1,61 @@
 import { useState } from 'react';
 
-import { MarkdownRender, ThemeSwitch } from './index';
+import { MarkdownRender, MonthlyCalendar, ThemeSwitch } from './index';
 
 import sampleMarkdown from '@/components/MarkdownRender/sample_markdown.md?raw';
 
 export function Playground() {
   const [enableDarkMode, setEnableDarkMode] = useState(false);
+
+  // MonthlyCalendar state
+  const today = new Date();
+  const [calYear, setCalYear] = useState(today.getFullYear());
+  const [calMonth, setCalMonth] = useState(today.getMonth() + 1);
+
+  const prevMonth = () => {
+    if (calMonth === 1) {
+      setCalMonth(12);
+      setCalYear((y) => y - 1);
+    } else {
+      setCalMonth((m) => m - 1);
+    }
+  };
+
+  const nextMonth = () => {
+    if (calMonth === 12) {
+      setCalMonth(1);
+      setCalYear((y) => y + 1);
+    } else {
+      setCalMonth((m) => m + 1);
+    }
+  };
+
+  const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+
+  const sampleAnnotations = Array.from(
+    { length: new Date(calYear, calMonth, 0).getDate() },
+    (_, i) => {
+      const day = i + 1;
+      if (day === 1) return <span key={day}>&#127881;</span>;
+      if (day === 10) return <span key={day}>&#128197;</span>;
+      if (day === 14) return <span key={day}>&#10084;&#65039;</span>;
+      if (day === 25) return <span key={day}>&#127775;</span>;
+      return null;
+    }
+  );
 
   return (
     <div
@@ -42,6 +92,72 @@ export function Playground() {
             }}
           >
             <ThemeSwitch enableDarkMode={enableDarkMode} setEnableDarkMode={setEnableDarkMode} />
+          </div>
+        </div>
+
+        {/* MonthlyCalendar Component - Basic */}
+        <div
+          style={{
+            border: '1px solid #e0e0e0',
+            borderRadius: '8px',
+            padding: '1.5rem'
+          }}
+        >
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>MonthlyCalendar</h2>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 12,
+              marginBottom: '1rem'
+            }}
+          >
+            <button onClick={prevMonth} style={{ cursor: 'pointer' }}>
+              &lsaquo;
+            </button>
+            <span style={{ fontWeight: 600 }}>
+              {monthNames[calMonth - 1]} {calYear}
+            </span>
+            <button onClick={nextMonth} style={{ cursor: 'pointer' }}>
+              &rsaquo;
+            </button>
+          </div>
+          <MonthlyCalendar
+            year={calYear}
+            month={calMonth}
+            headers={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
+          />
+        </div>
+
+        {/* MonthlyCalendar Component - Annotations + Dark Mode */}
+        <div
+          style={{
+            border: '1px solid #e0e0e0',
+            borderRadius: '8px',
+            padding: '1.5rem'
+          }}
+        >
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>
+            MonthlyCalendar (Annotations + Dark Mode)
+          </h2>
+          <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '1rem' }}>
+            With emoji annotations and dark theme
+          </p>
+          <div
+            style={{
+              background: '#1e1e30',
+              borderRadius: '8px',
+              padding: '12px'
+            }}
+          >
+            <MonthlyCalendar
+              year={calYear}
+              month={calMonth}
+              headers={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
+              darkMode={true}
+              annotations={sampleAnnotations}
+            />
           </div>
         </div>
 

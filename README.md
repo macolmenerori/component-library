@@ -40,9 +40,10 @@ Import components from the library. You can use the main entry point or subpath 
 
 | Import Path                                        | Components     | Dependencies Required             |
 | -------------------------------------------------- | -------------- | --------------------------------- |
-| `@macolmenerori/component-library`                 | All            | react, react-markdown, remark-gfm |
-| `@macolmenerori/component-library/theme-switch`    | ThemeSwitch    | react                             |
-| `@macolmenerori/component-library/markdown-render` | MarkdownRender | react, react-markdown, remark-gfm |
+| `@macolmenerori/component-library`                    | All              | react, react-markdown, remark-gfm |
+| `@macolmenerori/component-library/theme-switch`       | ThemeSwitch      | react                             |
+| `@macolmenerori/component-library/monthly-calendar`   | MonthlyCalendar  | react                             |
+| `@macolmenerori/component-library/markdown-render`    | MarkdownRender   | react, react-markdown, remark-gfm |
 
 ### Available Components
 
@@ -78,6 +79,40 @@ function App() {
 ```
 
 > **Note:** ThemeSwitch requires manual CSS import to support SSG/SSR environments. Import the CSS file before using the component.
+
+</details>
+
+<details>
+<summary><strong>MonthlyCalendar</strong> - A monthly calendar grid with annotation support</summary>
+
+A zero-dependency monthly calendar component rendered as a semantic HTML table. Supports per-day annotations (any ReactNode), customizable headers, inline style overrides, and built-in light/dark themes.
+
+**Props:**
+
+- `year` (number, required): Full four-digit year (e.g. 2026)
+- `month` (number, required): Month to display, 1-based (1 = January, 12 = December)
+- `annotations` ((ReactNode | null | undefined)[], optional): Array of content per day. `annotations[0]` maps to Day 1
+- `headers` (string[7], optional): Array of 7 weekday labels. Omit to hide the header row
+- `style` (CSSProperties, optional): Inline styles merged onto the `<table>` element
+- `darkMode` (boolean, optional): Enables dark color theme (default: `false`)
+
+**Example:**
+
+```tsx
+import { MonthlyCalendar } from '@macolmenerori/component-library/monthly-calendar';
+
+function App() {
+  return (
+    <MonthlyCalendar
+      year={2026}
+      month={2}
+      headers={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
+    />
+  );
+}
+```
+
+> **Note:** No CSS import is needed. MonthlyCalendar uses inline styles only.
 
 </details>
 
@@ -183,6 +218,7 @@ This will generate multiple entry points:
 
 - `dist/index.js` / `dist/index.cjs` - Main entry (all components)
 - `dist/theme-switch.js` / `dist/theme-switch.cjs` - ThemeSwitch only
+- `dist/monthly-calendar.js` / `dist/monthly-calendar.cjs` - MonthlyCalendar only
 - `dist/markdown-render.js` / `dist/markdown-render.cjs` - MarkdownRender only
 - `dist/types/` - TypeScript declarations
 
