@@ -35,14 +35,14 @@ import { MonthlyCalendar } from '@macolmenerori/component-library';
 
 ## Props
 
-| Prop | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
-| `year` | `number` | Yes | — | Full four-digit year (e.g. 2026) |
-| `month` | `number` | Yes | — | Month to display, 1-based: 1 = January, 12 = December |
-| `annotations` | `(ReactNode \| null \| undefined)[]` | No | `[]` | Array of React nodes, one per day. `annotations[0]` maps to Day 1 |
-| `headers` | `[string, string, string, string, string, string, string]` | No | `undefined` | Array of 7 weekday labels. Omit to hide the header row |
-| `style` | `CSSProperties` | No | `{}` | Inline styles merged onto the `<table>` element |
-| `darkMode` | `boolean` | No | `false` | Enables dark color theme for text elements |
+| Prop          | Type                                                       | Required | Default     | Description                                                       |
+| ------------- | ---------------------------------------------------------- | -------- | ----------- | ----------------------------------------------------------------- |
+| `year`        | `number`                                                   | Yes      | —           | Full four-digit year (e.g. 2026)                                  |
+| `month`       | `number`                                                   | Yes      | —           | Month to display, 1-based: 1 = January, 12 = December             |
+| `annotations` | `(ReactNode \| null \| undefined)[]`                       | No       | `[]`        | Array of React nodes, one per day. `annotations[0]` maps to Day 1 |
+| `headers`     | `[string, string, string, string, string, string, string]` | No       | `undefined` | Array of 7 weekday labels. Omit to hide the header row            |
+| `style`       | `CSSProperties`                                            | No       | `{}`        | Inline styles merged onto the `<table>` element                   |
+| `darkMode`    | `boolean`                                                  | No       | `false`     | Enables dark color theme for text elements                        |
 
 ## Usage Examples
 
@@ -80,7 +80,7 @@ const annotations = Array.from({ length: daysInMonth }, (_, i) => {
   month={6}
   headers={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
   annotations={annotations}
-/>
+/>;
 ```
 
 ### Dark Mode
@@ -130,19 +130,25 @@ function NavigableCalendar() {
   const [month, setMonth] = useState(2);
 
   const prev = () => {
-    if (month === 1) { setMonth(12); setYear((y) => y - 1); }
-    else setMonth((m) => m - 1);
+    if (month === 1) {
+      setMonth(12);
+      setYear((y) => y - 1);
+    } else setMonth((m) => m - 1);
   };
   const next = () => {
-    if (month === 12) { setMonth(1); setYear((y) => y + 1); }
-    else setMonth((m) => m + 1);
+    if (month === 12) {
+      setMonth(1);
+      setYear((y) => y + 1);
+    } else setMonth((m) => m + 1);
   };
 
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginBottom: 12 }}>
         <button onClick={prev}>Previous</button>
-        <span>{month}/{year}</span>
+        <span>
+          {month}/{year}
+        </span>
         <button onClick={next}>Next</button>
       </div>
       <MonthlyCalendar
@@ -173,7 +179,7 @@ You don't need to annotate every day. Use `null` for days without content:
 
 ```tsx
 const annotations = new Array(30).fill(null);
-annotations[4] = <span>Event A</span>;  // Day 5
+annotations[4] = <span>Event A</span>; // Day 5
 annotations[19] = <span>Event B</span>; // Day 20
 ```
 
@@ -181,10 +187,10 @@ annotations[19] = <span>Event B</span>; // Day 20
 
 The component has two built-in themes toggled via `darkMode`:
 
-| Token | Light | Dark | Applied To |
-| --- | --- | --- | --- |
-| `dayColor` | `#222` | `#f0f0f0` | Day number text |
-| `headerColor` | `#555` | `#a0a0b8` | Header row text |
+| Token             | Light     | Dark      | Applied To              |
+| ----------------- | --------- | --------- | ----------------------- |
+| `dayColor`        | `#222`    | `#f0f0f0` | Day number text         |
+| `headerColor`     | `#555`    | `#a0a0b8` | Header row text         |
 | `annotationColor` | `inherit` | `#d0d0e0` | Annotation wrapper text |
 
 Dark theme colors meet WCAG AA/AAA contrast standards against typical dark backgrounds (`#1e1e30`).
