@@ -38,12 +38,12 @@ Import components from the library. You can use the main entry point or subpath 
 
 ### Subpath Exports
 
-| Import Path                                        | Components     | Dependencies Required             |
-| -------------------------------------------------- | -------------- | --------------------------------- |
-| `@macolmenerori/component-library`                    | All              | react, react-markdown, remark-gfm |
-| `@macolmenerori/component-library/theme-switch`       | ThemeSwitch      | react                             |
-| `@macolmenerori/component-library/monthly-calendar`   | MonthlyCalendar  | react                             |
-| `@macolmenerori/component-library/markdown-render`    | MarkdownRender   | react, react-markdown, remark-gfm |
+| Import Path                                         | Components      | Dependencies Required             |
+| --------------------------------------------------- | --------------- | --------------------------------- |
+| `@macolmenerori/component-library`                  | All             | react, react-markdown, remark-gfm |
+| `@macolmenerori/component-library/theme-switch`     | ThemeSwitch     | react                             |
+| `@macolmenerori/component-library/monthly-calendar` | MonthlyCalendar | react                             |
+| `@macolmenerori/component-library/markdown-render`  | MarkdownRender  | react, react-markdown, remark-gfm |
 
 ### Available Components
 
@@ -226,8 +226,9 @@ This will generate multiple entry points:
 
 To publish a new version:
 
-1. Build the library: `pnpm build`
-2. Publish: `pnpm publish`
+1. Bump version with `pnpm release <major | minor | patch>`
+2. Build the library: `pnpm build`
+3. Publish: `pnpm publish`
 
 ## Technology Stack
 
