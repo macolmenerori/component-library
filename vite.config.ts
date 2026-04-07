@@ -36,7 +36,7 @@ export default defineConfig({
       },
       formats: ['es', 'cjs']
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime', 'react-markdown', 'remark-gfm'],
       output: {
         globals: {
