@@ -78,7 +78,7 @@
     "lint": "eslint --fix ./src/",
     "test": "echo \"Info: no tests for the moment\" && exit 0",
     "types": "tsc --noEmit",
-    "verify": "pnpm lint && pnpm prettify && pnpm types && pnpm test && pnpm audit --prod && pnpm build",
+    "verify": "pnpm audit --prod && pnpm lint && pnpm prettify && pnpm types && pnpm test && pnpm build",
     "publish:npm": "pnpm publish --registry https://registry.npmjs.org/ --access public",
     "publish:github": "pnpm publish --registry https://npm.pkg.github.com",
     "release": "npx tsx scripts/release.ts"
@@ -123,8 +123,8 @@
     "prettier": "^3.6.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.3",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.1",
     "vite": "^8.0.5",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2"
