@@ -1,6 +1,6 @@
 {
   "name": "@macolmenerori/component-library",
-  "version": "1.4.0-beta.1",
+  "version": "1.4.0",
   "type": "module",
   "description": "",
   "keywords": [],
@@ -16,25 +16,25 @@
   "packageManager": "pnpm@10.33.0",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/src/index.d.ts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types/index.d.ts",
+        "types": "./dist/types/src/index.d.ts",
         "default": "./dist/index.js"
       },
       "require": {
-        "types": "./dist/types/index.d.ts",
+        "types": "./dist/types/src/index.d.ts",
         "default": "./dist/index.cjs"
       }
     },
     "./theme-switch": {
       "import": {
-        "types": "./dist/types/components/ThemeSwitch/index.d.ts",
+        "types": "./dist/types/src/components/ThemeSwitch/index.d.ts",
         "default": "./dist/theme-switch.js"
       },
       "require": {
-        "types": "./dist/types/components/ThemeSwitch/index.d.ts",
+        "types": "./dist/types/src/components/ThemeSwitch/index.d.ts",
         "default": "./dist/theme-switch.cjs"
       }
     },
@@ -50,21 +50,21 @@
     },
     "./markdown-render": {
       "import": {
-        "types": "./dist/types/components/MarkdownRender/index.d.ts",
+        "types": "./dist/types/src/components/MarkdownRender/index.d.ts",
         "default": "./dist/markdown-render.js"
       },
       "require": {
-        "types": "./dist/types/components/MarkdownRender/index.d.ts",
+        "types": "./dist/types/src/components/MarkdownRender/index.d.ts",
         "default": "./dist/markdown-render.cjs"
       }
     },
     "./monthly-calendar": {
       "import": {
-        "types": "./dist/types/components/MonthlyCalendar/index.d.ts",
+        "types": "./dist/types/src/components/MonthlyCalendar/index.d.ts",
         "default": "./dist/monthly-calendar.js"
       },
       "require": {
-        "types": "./dist/types/components/MonthlyCalendar/index.d.ts",
+        "types": "./dist/types/src/components/MonthlyCalendar/index.d.ts",
         "default": "./dist/monthly-calendar.cjs"
       }
     }
