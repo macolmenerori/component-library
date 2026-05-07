@@ -2,7 +2,7 @@ import react from '@vitejs/plugin-react';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import dts from 'vite-plugin-dts';
+import dts from 'unplugin-dts/vite';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 const pkg = JSON.parse(readFileSync('./package.json', 'utf-8')) as {
@@ -16,8 +16,7 @@ export default defineConfig({
     dts({
       include: ['src/**/*.ts', 'src/**/*.tsx'],
       exclude: ['src/main.tsx', 'src/App.tsx', 'src/Playground.tsx'],
-      outDir: 'dist/types',
-      rollupTypes: false
+      outDir: 'dist/types'
     })
   ],
   define: {
