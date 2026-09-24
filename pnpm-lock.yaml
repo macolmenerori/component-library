@@ -256,7 +256,7 @@ importers:
         version: 8.70.1(eslint@10.11.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       unplugin-dts:
         specifier: ^1.0.3
-        version: 1.1.0(rolldown@1.2.4)(supports-color@8.1.1)(typescript@6.0.3)(vite@8.3.0(@types/node@26.6.1))
+        version: 1.1.1(rolldown@1.2.4)(supports-color@8.1.1)(typescript@6.0.3)(vite@8.3.0(@types/node@26.6.1))
       vite:
         specifier: ^8.3.0
         version: 8.3.0(@types/node@26.6.1)
@@ -3581,8 +3581,8 @@ packages:
   unist-util-visit@5.1.0:
     resolution: {integrity: sha512-m+vIdyeCOpdr/QeQCu2EzxX/ohgS8KbnPDgFni4dQsfSCtpz8UqDyY5GjRru8PDKuYn7Fq19j1CQ+nJSsGKOzg==}
 
-  unplugin-dts@1.1.0:
-    resolution: {integrity: sha512-KZJ+qk+lmd9dJY/PJvDRFL9BUtVubKDiX7Ai/X6mlkCArcQNzwmupKjVqHbRA42uqO5ZfFRFc+o8/OCbQ1GonQ==}
+  unplugin-dts@1.1.1:
+    resolution: {integrity: sha512-Z2VcabC0hjYuzF62oWmZXVoxagkM8bUWgqUy+dotoJTPnooR5mNaxbpv63JCmcaxdGCW2Bb75omK6FOryOYCRg==}
     peerDependencies:
       '@microsoft/api-extractor': '>=7'
       '@rspack/core': ^1
@@ -7841,7 +7841,7 @@ snapshots:
       unist-util-is: 6.0.1
       unist-util-visit-parents: 6.0.2
 
-  unplugin-dts@1.1.0(rolldown@1.2.4)(supports-color@8.1.1)(typescript@6.0.3)(vite@8.3.0(@types/node@26.6.1)):
+  unplugin-dts@1.1.1(rolldown@1.2.4)(supports-color@8.1.1)(typescript@6.0.3)(vite@8.3.0(@types/node@26.6.1)):
     dependencies:
       '@rollup/pluginutils': 5.4.0
       '@volar/typescript': 2.4.28(typescript@6.0.3)
